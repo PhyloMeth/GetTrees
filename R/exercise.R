@@ -40,16 +40,16 @@ GetTreeFromOpenTree_exercise <- function() {
 	# Open Tree can also return the original studies with the source trees.
 	anolis.studies <- studies_find_studies(property="ot:focalCladeOTTTaxonName",
 	value="Anolis")
-	anolis.studies.ids <- unlist(anolis.studies$matched_studies)
+	anolis.studies.ids <- unlist(anolis.studies$study_ids)
 	
 	# Let's get info on the first study
-	anolis.study1.metadata <- get_study_meta(anolis.studies[[1]][[1]]$`ot:studyId`)
+	anolis.study1.metadata <- get_study_meta(anolis.studies$study_ids)
 	print(get_publication(anolis.study1.metadata))
 	
 	# And let's get the tree from this study
 	# Look in rotl documentation for the right function
 	# Hint: get_study_trees() is close, but you don't know the tree.id
-	anolis.study1.tree1 <- get_______FUNCTION_FROM_rotl____(anolis.studies.ids[[1]])
+	anolis.study1.tree1 <- get_______FUNCTION_FROM_rotl____(anolis.studies.ids)
 	
 	# And plot it
 	plot.phylo(anolis.study1.tree1, type="fan", cex=0.2)
